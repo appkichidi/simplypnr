@@ -1,0 +1,16 @@
+{
+	"train":{
+		"number":"12512",
+		"name":"RAPTISAGAR EXP",
+		"boardingDate":"14-10-2013",
+		"class":"SL"
+	},
+	"pnr":{
+		"number":"6223614572",
+		"passengers":[
+				{"name":"Passenger 1","bookingStatus":"RAC 9","bookingQuota":"RLGN","currentStatus":"CNF","coachPosition":"16"},
+				{"name":"Passenger 1","bookingStatus":"RAC 10","bookingQuota":"RLGN","currentStatus":"CNF"}
+			],
+		"charting":"Y"	
+	}
+}

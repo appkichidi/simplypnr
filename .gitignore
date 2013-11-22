@@ -1,0 +1,4 @@
+#Ignore logs and versions
+/logs
+/deploy
+/versions

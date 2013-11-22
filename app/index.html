@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" ng-app="myApp" ng-csp>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimplyPNR</title>
+  <!--link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"-->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+      <div class="container">
+         <div class="navbar-header">
+            <span class="navbar-brand">SimplyPNR</span>
+        </div>
+      </div>
+  </div>  
+  <div class="container">
+    <div class="pull-left">
+      <small><a target="_blank" href="https://chrome.google.com/webstore/detail/simply-pnr/mnmepdpnanecdnlemfpkgeeoblhkhfoo/reviews">Feedback</a>   </small>
+     </div> 
+     <div class="pull-right">
+      <small><span><a target="_blank" href="https://chrome.google.com/webstore/support/mnmepdpnanecdnlemfpkgeeoblhkhfoo#bug">Report Bug</a> </span> 
+      <span style="padding-left:5px"><a target="_blank" href="https://chrome.google.com/webstore/support/mnmepdpnanecdnlemfpkgeeoblhkhfoo#feature">Suggest a feature</a> </small></span>
+     </div> 
+  </div>
+  <div class="container alert alert-warning alert-dismissable">
+      Go to <a target="_blank" href="http://www.simplypnr.com"><b>www.simplypnr.com</b></a> for accessing SimplyPNR on all devices.
+  </div>
+  <div class="container">
+      <h4>Indian Railways PNR Status Enquiry</h4>
+  </div>
+  <div ng-view></div>
+ 
+
+ 
+ 
+  
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+  <script type="text/javascript" src="lib/jquery/jquery-1.10.2.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular/angular-ui-router.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="lib/angular/ui-bootstrap-tpls-0.6.0.js"></script>
+</body>
+</html>

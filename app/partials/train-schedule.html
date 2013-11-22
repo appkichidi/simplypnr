@@ -1,0 +1,23 @@
+<table class="table table-condensed notop slimmargin">
+	<tr>
+		<th></th>
+		<th class="text-center">Station</th>
+		<th class="text-center">Scheduled Time</th>
+	</tr>
+	<tr>
+		<td>Leaves</td>
+		<td>{{trainSchdl.from}}</td>
+		<td>{{trainSchdl.boardingDate | date:'EEE dd MMM'}}  {{trainSchdl.fromTime}}</td>
+	</tr>
+	<tr>
+		<td>Arrives</td>
+		<td>{{trainSchdl.to}}</td>
+		<td>{{trainSchdl.destinationDate | date:'EEE dd MMM'}} {{trainSchdl.toTime}}</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<span class="pull-left">Total distance : {{trainSchdl.totalDist}} KMs</span>
+			<span class="pull-right">Total Time : {{trainSchdl.travelTime}}</span>
+		</td>
+	</tr>
+</table>

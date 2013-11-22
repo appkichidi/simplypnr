@@ -1,0 +1,80 @@
+<div class="container"> 
+<form name="pnrForm">
+<div class="row">
+  <div class="col-lg-12">
+    <span class="col-lg-3">Enter PNR number:</span>
+    <span class="col-lg-3">
+    	<input type="text" pnrfocus name="lccp_pnrno1" id="pnr" tabindex="1" ng-model="lccp_pnrno1" ng-required="true" ng-pattern="/^\d+-?\d+$/">
+    </span>
+    <span class="col-lg-3">
+      <button class="btn btn-primary" id="pnrstatus" ng-click="getPNRStatus()">
+		Get Status
+	  </button>	
+    </span>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="container" ng-show="recentpnr.length > 0">
+	<div class="row">
+		<div>
+			Recheck recently checked PNR number(s)
+		</div>
+	</div>	
+	<div class="container">
+		<div class="row">
+			<input type="checkbox" ng-model="allPnrFlag" ng-change="onAllRecentPNR()">
+				<span tooltip-placement="bottom" tooltip="Fetch details of all recently checked PNR numbers">
+	        		Check to load details of all recently checked PNR numbers
+	        	</span>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="col-md-6">
+	    <div class="col-md-3">
+	     	<span ng-repeat="pnr in recentpnr">
+	        	<a ng-click="onRecentPNR(pnr.pnr)">
+	        		<span tooltip-placement="bottom" tooltip="{{pnr.train}} on {{pnr.jdate}}">
+	        			{{pnr.pnr}}
+	        		</span>
+	        	</a>
+	        	<button class="close" style="float:none" ng-click="onRemoveRecentPNR(pnr.pnr)"><small>×</small></button>
+	        </span>
+	    </div>
+	</div>
+</div>
+</div>
+<div class="page-header"></div>
+<div loader in-progress="false"></div>
+
+<div class="container">
+	<div class="row" ng-show="startFlag && pnrForm.lccp_pnrno1.$error.required">
+		  <div id="pnr-err-noinpt" class="alert alert-danger col-md-6">
+	         <strong>Please enter a valid PNR number to check the details</strong>
+	      </div>
+	</div>
+	<div class="row" ng-show="startFlag && pnrForm.lccp_pnrno1.$error.pattern">
+		  <div id="pnr-err-noinpt" class="alert alert-danger col-md-6">
+	         <strong>Please enter a valid PNR number to check the details</strong>
+	      </div>
+	</div>
+	<div class="row" ng-show="!online">
+		  <div id="pnr-err-noinpt" class="alert alert-danger col-md-6">
+	         <strong>Please check your internet connection and try again</strong>
+	      </div>
+	</div>
+	<div class="row" ng-show="!validpnrresponse">
+		  <div id="pnr-err-noinpt" class="alert alert-danger col-md-6">
+	         <strong>We are unable to get the details. Please try again</strong>
+	      </div>
+	</div>
+</div>
+</form>
+</div>
+
+ <div class="container">
+      <div ng-include src="'partials/pnr-details.html'" ng-controller='PNRDtlCtrl'></div>
+ </div>
+
+
+

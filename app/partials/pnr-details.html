@@ -1,0 +1,49 @@
+<div class="container" ng-show="shouldShow">
+  <div ng-repeat="pnrdata in allpnrdata"> 
+    <div class="row">
+      <div class="col-md-6">
+       <div class="container" id="pnrhead">
+           <h4>Current Status for PNR number: <span>{{pnrdata.pnr.number}}</span></h4>
+       </div>
+       <small>
+        <table class="table table-hover table-bordered slimmargin" id="trntbl" ng-model="train">
+            <tr>
+               <th> Train No.</th>
+               <th> Name</th>
+               <th> Date</th>
+               <th> Class</th>
+             </tr>
+             <tr>
+               <td>{{pnrdata.train.number}}</td><td>{{pnrdata.train.name}}</td><td>{{pnrdata.train.boardingDate}}</td><td>{{pnrdata.train.class}}</td>
+             </tr>
+             <tr>
+               <td colspan="4" class="text-center">
+                   <span train-schedule train-detail="{{pnrdata.train}}"></span>
+                </td>
+             </tr>
+        </table>
+        </small>
+        <table class="table table-hover table-bordered" id="pnrtbl">
+             <tr>
+               <th> Sl.No.</th>
+               <th> Booking Status</th>
+               <th> Current Status</th>
+               <th ng-show="pnrdata.pnr.hasCoachPosition"> Coach Position</th>
+             </tr>
+             <tr ng-repeat="psngr in pnrdata.pnr.passengers">
+                <td>{{psngr.name}}</td>
+                <td>{{psngr.bookingStatus}}</td>
+                <td class="text-center" ng-class="{true:'success',false:'danger'}[psngr.isConfirmedTkt]">{{psngr.currentStatus}}</td>
+                <td class="text-right" ng-show="pnrdata.pnr.hasCoachPosition">{{psngr.coachPosition}}</td>
+             </tr>
+             <tr>
+                <td colspan="4" class="text-center">
+                    <span ng-show="!pnrdata.chartingDone">CHART NOT PREPARED</span>
+                    <span ng-show="pnrdata.chartingDone">CHART PREPARED</span>
+                </td>
+             </tr>
+        </table>
+      </div>
+     </div>
+  </div>   
+</div>
